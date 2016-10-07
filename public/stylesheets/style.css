@@ -29,4 +29,8 @@ a {
 }
 .hours, .minutes, .seconds {
     margin-left: 10px
+
+#twitter {
+    width: 24px;
+    height: 24px;
 }

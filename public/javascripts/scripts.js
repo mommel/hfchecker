@@ -22,9 +22,12 @@ function getDataFromGithub(username) {
 
             if (status == "success") {
                 var total = $("#total");
+                var shareText = "I have opened my " + data.items.length + ". merge request for Hacktoberfest 2016";
+                var shareTwitter = $("#twitterlink");
 
                 if(data.total_count!=0){
-                  total.html("Total PR's: " + data.items.length + "  <button class='btn btn-info' onclick='tweetIt()'>Tweet it!</button>");
+                  total.html("Total PR's: " + data.items.length);
+                  shareTwitter.attr("href", "/redirect?service=twitter&title=" + shareText);
                 }else{
                   total.html("Total PR's: " + data.items.length);
                 }
@@ -94,7 +97,7 @@ function clock() {
 $(function () {
     clock();
     var timeinterval = setInterval(clock, 1000);
-    
+
     $("#ghform").submit(function () {
         var ghuser = $("#ghuser").val();
         if (ghuser != "") {
