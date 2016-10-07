@@ -11,8 +11,11 @@ function getDataFromGithub(username) {
         success: function (data, status, jqxhr) {
             if (status == "success") {
                 var total = $("#total");
+                var shareText = "I have opened my " + data.items.length + ". merge request for Hacktoberfest 2016";
+                var shareTwitter = $("#twitterlink");
 
                 total.html("Total PR's: " + data.items.length);
+                shareTwitter.attr("href", "/redirect?service=twitter&title=" + shareText);
 
                 if(data.total_count!=0){
                     $.each(data.items, function (ix, item) {
